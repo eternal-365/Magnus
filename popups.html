@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Popup</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #edf2f6;
+    }
+
+    .container {
+      padding: 30px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      border: 1px solid #ccc;
+      border-bottom: none;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      background: #f8f8f8;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .tab.active {
+      background: #fff;
+      border-bottom: 2px solid #fff;
+    }
+
+    .tab-content {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-top: none;
+      padding: 30px;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      min-width: 150px;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    /* In-window popup box */
+    #inWindowPopupBox {
+      display: none;
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      background: white;
+      border: 2px solid #3498db;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    #inWindowPopupBox button {
+      background-color: crimson;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+    <div style="margin: 20px 50px 0; font-size: 14px;"><a href="home.html">🏠 Home </a> > More > Popups</div>
+<div class="container">
+  <h2>Popup</h2>
+
+  <div class="tabs">
+    <div class="tab active">Popups</div>
+  </div>
+
+  <div class="tab-content">
+    <div class="buttons">
+      <button onclick="popupOne()">Popup One</button>
+      <button onclick="popupTwo()">Popup Two</button>
+      <button onclick="popupThree()">Popup Three</button>
+
+      <button onclick="popupDuplicate()">Popup Duplicate</button>
+      <button onclick="duplicateTab()">Duplicate Tab</button>
+      <button onclick="inWindowPopup()">In Window Popup</button>
+
+      <button onclick="alertBox()">Alert Box</button>
+      <button onclick="confirmBox()">Confirm Box</button>
+      <button onclick="promptBox()">Prompt Box</button>
+    </div>
+  </div>
+</div>
+
+<!-- In-window popup -->
+<div id="inWindowPopupBox">
+  <p>This is an in-window popup!</p>
+  <button onclick="closeInWindowPopup()">Close</button>
+</div>
+
+<script>
+  function popupOne() {
+    window.open('', '_blank', 'width=300,height=200').document.write('<h3>Popup One</h3>');
+  }
+
+  function popupTwo() {
+    window.open('', '_blank', 'width=300,height=200').document.write('<h3>Popup Two</h3>');
+  }
+
+  function popupThree() {
+    window.open('', '_blank', 'width=300,height=200').document.write('<h3>Popup Three</h3>');
+  }
+
+  function popupDuplicate() {
+    window.open(location.href, '_blank');
+  }
+
+  function duplicateTab() {
+    window.open(window.location.href, '_blank');
+  }
+
+  function inWindowPopup() {
+    document.getElementById('inWindowPopupBox').style.display = 'block';
+  }
+
+  function closeInWindowPopup() {
+    document.getElementById('inWindowPopupBox').style.display = 'none';
+  }
+
+  function alertBox() {
+    alert("This is an alert box!");
+  }
+
+  function confirmBox() {
+    if (confirm("Do you confirm this action?")) {
+      alert("Confirmed!");
+    } else {
+      alert("Cancelled!");
+    }
+  }
+
+  function promptBox() {
+    const result = prompt("Enter your name:");
+    if (result !== null) {
+      alert("Hello, " + result + "!");
+    }
+  }
+</script>
+
+</body>
+</html>

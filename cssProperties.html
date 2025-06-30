@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Properties</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #edf1f5;
+    }
+
+    .header {
+      background-color: #3f8dbf;
+      color: white;
+      padding: 15px 20px;
+      font-size: 24px;
+    }
+
+    .tabs {
+      display: flex;
+      margin: 20px;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      background: #3f8dbf;
+      color: white;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      background: white;
+      color: #333;
+      border: 1px solid #ccc;
+      border-bottom: none;
+    }
+
+    .tab-content {
+      background: white;
+      padding: 20px;
+      margin: 0 20px;
+      border: 1px solid #ccc;
+    }
+
+    .links a {
+      margin-right: 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .labels span {
+      margin-right: 10px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .buttons button {
+      margin-right: 10px;
+      padding: 8px 12px;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .alerts div {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 4px;
+    }
+    .alert {
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    color: white;
+    position: relative;
+    }
+
+    .alert.success {
+    background-color: #28a745;
+    }
+
+    .alert.info {
+    background-color: #17a2b8;
+    }
+
+    .alert.warning {
+    background-color: #fd7e14;
+    }
+
+    .alert.danger {
+    background-color: #dc3545;
+    }
+
+    .alert .closebtn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    }
+
+
+    .progress-bar {
+      width: 100%;
+      background: #eee;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 20px;
+      background: #3f8dbf;
+      width: 70%;
+    }
+  </style>
+</head>
+<body>
+<div style="margin: 20px 50px 0; font-size: 14px;"><a href="home.html">🏠 Home </a> > More > CSS Properties</div>
+<div class="header">CSS Properties</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab('links', event)">Links</div>
+  <div class="tab" onclick="showTab('labels', event)">Labels</div>
+  <div class="tab" onclick="showTab('buttons', event)">Buttons</div>
+  <div class="tab" onclick="showTab('alerts', event)">Alerts</div>
+  <div class="tab" onclick="showTab('progress', event)">Progress Bars</div>
+</div>
+
+<div class="tab-content">
+  <div id="links" class="tab-section">
+    <a href="#" style="color: red;">Link 1</a>
+    <a href="#" style="color: blue;">Link 2</a>
+    <a href="#" style="color: green;">Link 3</a>
+    <a href="#" style="color: orange;">Link 4</a>
+    <a href="#" style="color: purple;">Link 5</a>
+  </div>
+
+  <div id="labels" class="tab-section" style="display: none;">
+    <span style="background: #d0e7ff; color: #00529b;">Info</span>
+    <span style="background: #dff2bf; color: #4f8a10;">Success</span>
+    <span style="background: #fefebb; color: #9f6000;">Warning</span>
+    <span style="background: #ffdddd; color: #d8000c;">Error</span>
+  </div>
+
+  <div id="buttons" class="tab-section" style="display: none;">
+    <button style="background: #007bff;">Primary</button>
+    <button style="background: #28a745;">Success</button>
+    <button style="background: #ffc107;">Warning</button>
+    <button style="background: #dc3545;">Danger</button>
+  </div>
+
+  <div id="alerts" class="tab-section" style="display: none;">
+  <div class="alert success">
+    <strong>Success!</strong> Indicates a successful or positive action.
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  </div>
+  <div class="alert info">
+    <strong>Info!</strong> Indicates a neutral informative change or action.
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  </div>
+  <div class="alert warning">
+    <strong>Warning!</strong> Indicates a warning that might need attention.
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  </div>
+  <div class="alert danger">
+    <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  </div>
+</div>
+
+
+  <div id="progress" class="tab-section" style="display: none;">
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: 70%"></div>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: 45%; background: #28a745;"></div>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: 85%; background: #ffc107;"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showTab(id, event) {
+    document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.tab-section').forEach(section => section.style.display = 'none');
+
+    event.target.classList.add('active');
+    document.getElementById(id).style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

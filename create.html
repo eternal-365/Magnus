@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Employee</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .form-section {
+      padding: 30px 50px;
+      background: #fff;
+      margin: 30px;
+      border-radius: 6px;
+    }
+
+    .form-section h2 {
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .form-row > div {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"], input[type="email"], input[type="date"], select, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+    }
+
+    textarea {
+      height: 60px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      text-align: right;
+    }
+
+    .buttons button {
+      padding: 8px 18px;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .buttons .save {
+      background-color: #28a745;
+      margin-right: 10px;
+    }
+
+    .buttons .cancel {
+      background-color: #dc3545;
+    }
+
+    .breadcrumb {
+      font-size: 14px;
+      margin: 20px 50px 0;
+      color: #555;
+    }
+
+    .breadcrumb span {
+      color: #333;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px 50px 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="breadcrumb">
+    <span><span><a href="home.html">🏠 Home </a></span>> Employee > Create</span>
+  </div>
+
+  <div class="section-title">Employee <small style="font-weight: normal;">Create</small></div>
+
+  <div class="form-section">
+    <h2>Employee Details</h2>
+    <div class="form-row">
+      <div>
+        <label>First Name</label>
+        <input type="text" placeholder="First Name">
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input type="text" placeholder="Last Name">
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" placeholder="Email ID">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div>
+        <label>Mobile Number</label>
+        <input type="text" placeholder="Mobile No">
+      </div>
+      <div>
+        <label>Date Of Birth</label>
+        <input type="date">
+      </div>
+      <div>
+        <label>Gender</label>
+        <label><input type="radio" name="gender"> Male</label>
+        <label><input type="radio" name="gender"> Female</label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div style="flex: 1;">
+        <label>Address</label>
+        <textarea placeholder="Address"></textarea>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div>
+        <label>Country</label>
+        <select>
+          <option>--Select Country--</option>
+          <option>India</option>
+          <option>USA</option>
+        </select>
+      </div>
+      <div>
+        <label>City</label>
+        <select>
+          <option>--Select City--</option>
+          <option>Hyderabad</option>
+          <option>Delhi</option>
+        </select>
+      </div>
+      <div style="display: flex; align-items: flex-end;">
+        <label><input type="checkbox"> Other City</label>
+      </div>
+    </div>
+
+    <h2>Skills</h2>
+    <div class="skills">
+      <label><input type="checkbox"> AWS</label>
+      <label><input type="checkbox"> DevOps</label>
+      <label><input type="checkbox"> Full Stack Developer</label>
+      <label><input type="checkbox"> Middleware</label>
+      <label><input type="checkbox"> QA-Automation</label>
+      <label><input type="checkbox"> WebServices</label>
+    </div>
+
+    <div class="buttons">
+      <button class="save">Save</button>
+      <button class="cancel">Cancel</button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Slider</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #edf2f6;
+    }
+
+    .container {
+      padding: 30px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      border: 1px solid #ccc;
+      border-bottom: none;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      background: #f8f8f8;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .tab.active {
+      background: #fff;
+      border-bottom: 2px solid #fff;
+    }
+
+    .tab-content {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-top: none;
+      padding: 30px;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .slider-container {
+      padding: 20px 0;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 8px;
+      background: #ddd;
+      outline: none;
+      border-radius: 5px;
+      accent-color: #007bff;
+    }
+
+    .value-display {
+      margin-top: 15px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+    <div style="margin: 20px 50px 0; font-size: 14px;"><a href="home.html">🏠 Home </a> > More > Slider</div>
+  <div class="container">
+    <h2>Slider</h2>
+
+    <div class="tabs">
+      <div class="tab active">Slider</div>
+    </div>
+
+    <div class="tab-content">
+      <div class="slider-container">
+        <input type="range" id="slider" min="0" max="50" value="3" />
+        <div class="value-display">
+          Current Slider Value: <span id="sliderValue">3</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const output = document.getElementById('sliderValue');
+    slider.oninput = function () {
+      output.textContent = this.value;
+    };
+  </script>
+
+</body>
+</html>

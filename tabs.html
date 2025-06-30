@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabs - Magnus</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .tab-container {
+      background: white;
+      margin: 30px 50px;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .tab-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .tab-buttons button {
+      padding: 10px 20px;
+      border: none;
+      background: #e0e0e0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .tab-buttons .active {
+      background-color: #4a90e2;
+      color: white;
+      border-bottom: 3px solid #2c5aa0;
+    }
+
+    .tab-content {
+      display: none;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .tab-inputs {
+      margin-top: 20px;
+    }
+
+    .tab-inputs input {
+      width: 200px;
+      height: 30px;
+      margin: 10px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="breadcrumb" style="margin: 20px 50px 0; font-size: 14px;">
+    <span><a href="home.html">🏠 Home </a> > More > Tabs</span>
+  </div>
+
+  <h2 style="margin-left: 50px;">Tabs</h2>
+
+  <div class="tab-container">
+    <div class="tab-buttons">
+      <button class="tab-btn active" onclick="openTab(0)">Plan to Succeed</button>
+      <button class="tab-btn" onclick="openTab(1)">UnLearning</button>
+      <button class="tab-btn" onclick="openTab(2)">Ways of Unlearning</button>
+    </div>
+
+    <div class="tab-content active">
+      <p>Congratulations, You are in the best place to learn the technologies for JOB. Please strictly follow the plan for the first 45 days to see the unbelievable results.</p>
+      <p>You must UNLEARN to LEARN new things every day as technologies are changing faster than ever...</p>
+      <p>It’s not just learning technologies, Also You learn how to use your knowledge and experience to get a job in less than 100 days.</p>
+      <div class="tab-inputs">
+        <input type="text" />
+        <input type="text" />
+      </div>
+    </div>
+
+    <div class="tab-content">
+      <p>Unlearning is the process of realizing that something which we learned earlier is incorrect or obsolete, admitting it and deciding to erase bad conditioning from our mind for good.</p>
+      <p>It is the process of saying bye to an old paradigm and embracing a new one.</p>
+      <p>Unfortunately, we are controlled by myths which do not allow us to open our eyes to reality.</p>
+      <div class="tab-inputs">
+        <input type="text" />
+        <input type="text" />
+      </div>
+    </div>
+
+    <div class="tab-content">
+      <p>The first step towards becoming “unlearned” is not just to have a thirst for knowledge but to question it.</p>
+      <p>It helps us understand whether what we have learned is still relevant or obsolete.</p>
+      <p>The next important step is to take steps to develop creative and critical thinking.</p>
+      <div class="tab-inputs">
+        <input type="text" />
+        <input type="text" />
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

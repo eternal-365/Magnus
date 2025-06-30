@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JALA Academy - Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #d2d6dd;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .login-container {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .login-box {
+      background-color: white;
+      max-width: 400px;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin-bottom: 5px;
+    }
+
+    p.subtext {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .yellow-banner {
+      background-color: yellow;
+      font-weight: bold;
+      padding: 8px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    label {
+      float: left;
+      font-size: 14px;
+    }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .remember-me input {
+      margin-right: 8px;
+    }
+
+    button {
+      background-color: #007baf;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .forgot-password,
+    .admin-login {
+      margin-top: 15px;
+      color: #003366;
+      text-decoration: none;
+      display: block;
+    }
+
+    .separator {
+      margin: 10px 0;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .footer-banner {
+      background-color: #3390b4;
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      padding: 12px 20px;
+      margin-top: auto;
+    }
+
+    a {
+      color: #003366;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>JALA Academy</h1>
+    <p class="subtext">Use the below details to login</p>
+    <p class="subtext">Email : yahya'sclone@jalaacademy.com</p>
+    <p class="subtext">Password : Yahya@JalaAcademy20</p>
+    <div class="yellow-banner">Learn everything on Real-Time Scenarios. FREE for all.</div>
+
+    <div class="login-box">
+      <form onsubmit="handleLogin(event)">
+        <h3>Sign in</h3>
+        <input type="text" id="email" placeholder="Email or Mobile No" required />
+        <input type="password" id="password" placeholder="Password" required />
+
+        <div class="remember-me">
+          <input type="checkbox" id="remember" />
+          <label for="remember">Remember Me</label>
+        </div>
+
+        <button type="submit">Sign In</button>
+
+        <div class="separator">- OR -</div>
+        <a class="forgot-password" href="#">Forgot Password</a>
+        <a class="admin-login" href="#">Admin Login</a>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-banner">
+    JALA Academy offers Job Guaranteed Programs for Freshers to 12 years’ experience on Full Stack Development / Automation Testing / Dev-Ops / QA/ SDET/Cyber Security / RPA / Cloud Technologies.
+    Training would be completely on live Project scenarios. Read our website JALA Academy for more details :
+    <a href="https://jalaacademy.com/" target="_blank">https://jalaacademy.com/</a>
+  </div>
+
+  <div class="footer-banner"><h1>Clone by Mohammed Yahya</h1></div>
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+
+      const enteredEmail = document.getElementById('email').value.trim();
+      const enteredPassword = document.getElementById('password').value.trim();
+
+      const correctEmail = "yahya'sclone@jalaacademy.com";
+      const correctPassword = "Yahya@JalaAcademy20";
+
+      if (
+        enteredEmail.toLowerCase() === correctEmail &&
+        enteredPassword === correctPassword
+      ) {
+        
+        window.location.href = "home.html";
+      } else {
+        alert("Login failed. Please enter correct credentials.");
+      }
+    }
+  </script>
+</body>
+</html>

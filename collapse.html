@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Collapsible Content</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f0f4f7;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      background: #e0e0e0;
+      border: none;
+      outline: none;
+      margin-right: 5px;
+    }
+
+    .tab.active {
+      background: #3b87b3;
+      color: white;
+      font-weight: bold;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px 0;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .accordion-button {
+      width: 100%;
+      text-align: left;
+      padding: 15px;
+      background: #3b87b3;
+      color: white;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    .accordion-panel {
+      padding: 10px 15px;
+      background: #f4f4f4;
+      display: none;
+    }
+
+    .accordion-item {
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+    <div style="margin: 20px 50px 0; font-size: 14px;"><a href="home.html">🏠 Home </a> > More > Collapse Content</div>
+  <div class="container">
+    <h2>Collapsible Content</h2>
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('single')">Single Collapse</button>
+      <button class="tab" onclick="showTab('multiple')">Multiple Collapse</button>
+    </div>
+
+    <div id="single" class="tab-content active">
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-button" onclick="toggleSingle(this)">
+            Know your goals and Prioritize Wisely
+          </button>
+          <div class="accordion-panel">
+            <p>What are your priorities for the day? Make a list of your priorities and plan your day. The tasks of the day must be outlined with the most important and urgent ones on top. Likewise, determine your short-term and long-term goals and evaluate your progress frequently.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button" onclick="toggleSingle(this)">
+            Be focused and Eliminate Distractions
+          </button>
+          <div class="accordion-panel">
+            <p>Stay focused by minimizing distractions. Turn off notifications, set specific work hours, and use techniques like Pomodoro to remain productive.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button" onclick="toggleSingle(this)">
+            Chose the right mentor to Succeed in career
+          </button>
+          <div class="accordion-panel">
+            <p>A good mentor can guide you, challenge you, and help you stay on track with your goals. Choose someone who aligns with your values and career aspirations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="multiple" class="tab-content">
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-button" onclick="toggleMultiple(this)">
+            Collaborate with Colleagues
+          </button>
+          <div class="accordion-panel">
+            <ul>
+              <li>Teach and learn from each other</li>
+              <li>Collaborate on lesson plans - Two minds are better than one</li>
+              <li>Build your own social network</li>
+              <li>Get feedback regularly</li>
+              <li>Work together to solve problems</li>
+              <li>Become a teacher-leader</li>
+              <li>Adopt a team mentality</li>
+              <li>Ask for help</li>
+              <li>Find a mentor</li>
+              <li>Be open to new ideas</li>
+            </ul>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button" onclick="toggleMultiple(this)">
+            Learn Anything Quickly
+          </button>
+          <div class="accordion-panel">
+            <p>Use techniques like active recall, spaced repetition, and teaching others to learn faster and more effectively.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button" onclick="toggleMultiple(this)">
+            Reasons People Give Up on Their Goals Too Early
+          </button>
+          <div class="accordion-panel">
+            <p>They may lack motivation, face fear of failure, or set unrealistic goals without proper planning or support.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button" onclick="toggleMultiple(this)">
+            Signs of Settling For Less In Life
+          </button>
+          <div class="accordion-panel">
+            <p>Feeling uninspired, ignoring your potential, and being afraid to step out of your comfort zone are signs you might be settling for less.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showTab(tab) {
+      document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+      document.querySelector(`.tab[onclick="showTab('${tab}')"]`).classList.add('active');
+      document.getElementById(tab).classList.add('active');
+    }
+
+    function toggleSingle(button) {
+      const panels = document.querySelectorAll('#single .accordion-panel');
+      const buttons = document.querySelectorAll('#single .accordion-button');
+      panels.forEach(panel => panel.style.display = 'none');
+      buttons.forEach(btn => btn.classList.remove('open'));
+      const panel = button.nextElementSibling;
+      if (panel.style.display !== 'block') {
+        panel.style.display = 'block';
+        button.classList.add('open');
+      }
+    }
+
+
+    function toggleMultiple(button) {
+      const panel = button.nextElementSibling;
+      panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>

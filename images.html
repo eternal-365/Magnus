@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Upload UI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #edf2f6;
+      padding: 30px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      margin-right: 10px;
+    }
+
+    input[type="file"],
+    input[type="text"] {
+      padding: 6px;
+      font-size: 14px;
+      width: 300px;
+    }
+
+    button {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    #successMessage {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #4caf50;
+      color: white;
+      padding: 15px;
+      border-radius: 4px;
+      z-index: 999;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
+
+    .image-list {
+      margin-top: 20px;
+    }
+
+    .image-box {
+      width: 250px;
+      border: 2px solid green;
+      background-color: #fff;
+      margin-bottom: 15px;
+      padding: 10px;
+      position: relative;
+      font-weight: bold;
+    }
+
+    .delete-btn {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      color: red;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+    <div style="margin: 20px 50px 0; font-size: 14px;"><a href="home.html">🏠 Home </a> > More > Images</div>
+    
+  <div class="container">
+    
+    <h2>Uploading/Downloading Image</h2>
+
+    <div class="form-group">
+      <div>
+        <label for="fileInput">Select File :</label>
+        <input type="file" id="fileInput" accept="image/*">
+      </div>
+      <div>
+        <label for="fileName">File Name :</label>
+        <input type="text" id="fileName" placeholder="File Name">
+      </div>
+      <button onclick="uploadImage()">Upload</button>
+    </div>
+
+    <div id="successMessage">✅ File uploaded successfully.<br>Success!</div>
+
+    <div class="image-list" id="imageList">
+      <h4>List Of Images :</h4>
+    </div>
+  </div>
+
+  <script>
+    function uploadImage() {
+      const fileInput = document.getElementById('fileInput');
+      const fileNameInput = document.getElementById('fileName');
+      const imageList = document.getElementById('imageList');
+      const successMessage = document.getElementById('successMessage');
+
+      const file = fileInput.files[0];
+      const customName = fileNameInput.value.trim();
+
+      if (!file) {
+        alert("Please select a file.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const imageBox = document.createElement('div');
+        imageBox.className = 'image-box';
+
+        const deleteBtn = document.createElement('span');
+        deleteBtn.className = 'delete-btn';
+        deleteBtn.innerHTML = '&times;';
+        deleteBtn.onclick = function () {
+          imageList.removeChild(imageBox);
+        };
+
+        const imageName = document.createElement('div');
+        imageName.textContent = customName || file.name;
+
+        imageBox.appendChild(imageName);
+        imageBox.appendChild(deleteBtn);
+
+        imageList.appendChild(imageBox);
+
+        // Show success toast
+        successMessage.style.display = 'block';
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 3000);
+
+        // Clear input fields
+        fileInput.value = '';
+        fileNameInput.value = '';
+      };
+
+      reader.readAsDataURL(file);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .menu-container {
+      background: white;
+      height: 30vh;
+      padding: 20px;
+      margin: 30px 50px;
+      border-radius: 5px;
+    }
+
+    .menu-tabs {
+      display: flex;
+      margin-bottom: 15px;
+    }
+
+    .menu-tabs button {
+      padding: 10px 20px;
+      border: none;
+      background: #e1e1e1;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .menu-tabs .active {
+      background: #4a90e2;
+      color: white;
+      border-bottom: 3px solid #2c5aa0;
+    }
+
+    .menu-content {
+      display: none;
+    }
+
+    .menu-content.active {
+      display: block;
+    }
+
+    .menu-buttons {
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+    }
+
+    .menu-buttons button {
+      background: #4a90e2;
+      color: white;
+      margin-bottom: 10px;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .submenu-box {
+      margin-left: 220px;
+      margin-top: -170px;
+    }
+
+    .submenu-box button {
+      background: #337ab7;
+      margin: 5px;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      display: block;
+      width: 160px;
+    }
+
+    .info-text {
+      margin-left: 220px;
+      margin-top: -120px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div style="margin: 20px 50px 0; font-size: 14px;"><a href="home.html">🏠 Home </a> > More > Menu</div>
+<h2 style="margin-left: 50px;">Menu</h2>
+
+<div class="menu-container">
+  <div class="menu-tabs">
+    <button class="tab-btn active" onclick="switchMenuTab(0)">Single Menus</button>
+    <button class="tab-btn" onclick="switchMenuTab(1)">Sub Menus</button>
+  </div>
+
+  <div class="menu-content active" id="singleMenu">
+  <div style="display: flex; align-items: flex-start;">
+    <div class="menu-buttons">
+      <button onclick="showSingleMsg('Testing')">Testing</button>
+      <button onclick="showSingleMsg('Java')">Java</button>
+      <button onclick="showSingleMsg('.Net')">.Net</button>
+      <button onclick="showSingleMsg('Database')">Database</button>
+    </div>
+    <div class="info-text" id="singleMenuText" style="margin-left: 30px; margin-top: 10px;"></div>
+  </div>
+</div>
+
+
+  <div class="menu-content" id="subMenu">
+    <div class="menu-buttons">
+      <button onclick="showSubMenu('Testing')">Testing</button>
+    <button onclick="showSubMenu('Java')">Java</button>
+    <button onclick="showSubMenu('.Net')">.Net</button>
+    <button onclick="showSubMenu('Database')">Database</button>
+    </div>
+   <div class="submenu-box" id="submenu-Testing" style="display:none;">
+  <button>Selenium</button>
+  <button>Manual Testing</button>
+  <button>DB Testing</button>
+  <button>Unit Testing</button>
+</div>
+
+<div class="submenu-box" id="submenu-Java" style="display:none;">
+  <button>Core Java</button>
+  <button>Spring</button>
+  <button>Hibernate</button>
+</div>
+
+<div class="submenu-box" id="submenu-.Net" style="display:none;">
+  <button>ASP.NET</button>
+  <button>Entity Framework</button>
+  <button>C#</button>
+</div>
+
+<div class="submenu-box" id="submenu-Database" style="display:none;">
+  <button>MySQL</button>
+  <button>PostgreSQL</button>
+  <button>Oracle</button>
+</div>
+
+  </div>
+</div>
+
+<script>
+  function switchMenuTab(index) {
+    const tabs = document.querySelectorAll(".tab-btn");
+    const contents = document.querySelectorAll(".menu-content");
+    tabs.forEach((t, i) => {
+      t.classList.remove("active");
+      contents[i].classList.remove("active");
+    });
+    tabs[index].classList.add("active");
+    contents[index].classList.add("active");
+
+    document.getElementById("singleMenuText").innerText = "";
+    hideSubMenu();
+  }
+
+  function showSingleMsg(menuName) {
+    document.getElementById("singleMenuText").innerText = `You Have Selected ${menuName} Menu Option.`;
+  }
+
+  function showSubMenu(menuName) {
+  
+  const submenus = document.querySelectorAll('.submenu-box');
+  submenus.forEach(item => item.style.display = "none");
+
+  
+  const selected = document.getElementById(`submenu-${menuName}`);
+  if (selected) selected.style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
